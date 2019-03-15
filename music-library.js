@@ -23,21 +23,21 @@ class Playlist {
   get overallRating() {
     let avgRating = 0;
     let countRatings = 0;
-    this.tracks.forEach(track) {
-      if (track.rating >= 1 && track.rating <=5) {
+    this.tracks.forEach((track) => {
+      if (track.rating >= 1 && track.rating <= 5) {
         avgRating += track.rating;
-        countRatings++
+        countRatings++;
       }
-    }
-    return `The overall rating of ${this.name} is ${avgRating / countRatings} out of 5.`
+    });
+    return `The overall rating of ${this.name} is ${avgRating / countRatings} out of 5.`;
   }
 
   get totalDuration() {
     let sumDuration = 0;
-    this.tracks.forEach(track) {
-      sumDuration =+ track.length;
-    }
-    return `The total duration of ${this.name} is ${sumDuration / 60} minutes and ${sumDuration % 60} seconds.`
+    this.tracks.forEach((track) => {
+      sumDuration += track.length;
+    });
+    return `The total duration of ${this.name} is ${sumDuration / 60} minutes and ${sumDuration % 60} seconds.`;
   }
 }
 
