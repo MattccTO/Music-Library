@@ -29,7 +29,7 @@ class Playlist {
         countRatings++;
       }
     });
-    return `The overall rating of ${this.name} is ${avgRating / countRatings} out of 5.`;
+    return `The overall rating of ${this.name} is ${Math.round((avgRating / countRatings) * 10) / 10} out of 5.`;
   }
 
   get totalDuration() {
@@ -37,7 +37,7 @@ class Playlist {
     this.tracks.forEach((track) => {
       sumDuration += track.length;
     });
-    return `The total duration of ${this.name} is ${sumDuration / 60} minutes and ${sumDuration % 60} seconds.`;
+    return `The total duration of ${this.name} is ${Math.floor(sumDuration / 60)} minutes and ${sumDuration % 60} seconds.`;
   }
 }
 
@@ -87,3 +87,11 @@ const mattsLibrary = new Library('Matt\'s Library');
 mattsLibrary.addPlaylist(programmingMusic);
 mattsLibrary.addPlaylist(chillRap);
 mattsLibrary.addPlaylist(punkRock);
+
+console.log(mattsLibrary);
+console.log(programmingMusic);
+console.log(chillRap);
+console.log(punkRock);
+
+console.log(programmingMusic.totalDuration);
+console.log(chillRap.overallRating);
